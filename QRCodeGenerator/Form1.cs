@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -26,10 +23,10 @@ namespace QRCodeGenerator
             InitializeComponent();
         }
 
-        
+
         private void label2_Click(object sender, EventArgs e)
         {
-                  
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -62,11 +59,24 @@ namespace QRCodeGenerator
 
         private void timer2_Tick(Object sender, EventArgs e)
         {
+
+
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void timer2_Tick_1(object sender, EventArgs e)
+        {
             BarcodeReader reader = new BarcodeReader();
             Result result = reader.Decode((Bitmap)pictureBox1.Image);
+
             try
             {
-                string decoded = result.ToString().Trim();
+                string decoded = result.ToString();
                 if (decoded != "")
                 {
                     textBox1.Text = decoded;
@@ -76,14 +86,17 @@ namespace QRCodeGenerator
             {
 
             }
+        }
 
+        private void textBox1_TextChanged_1(object sender, EventArgs e)
+        {
 
-        }         
+        }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void button3_Click(object sender, EventArgs e)
         {
             timer2.Start();
         }
     }
-    }
 
+}
